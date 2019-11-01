@@ -19,16 +19,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dsb-l9-aea" customClass="OfferPriceView" customModule="offerPrice" customModuleProvider="target">
-                                <rect key="frame" x="87" y="250" width="240" height="62"/>
+                                <rect key="frame" x="87" y="417" width="240" height="62"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="cro-Oo-U63"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dsb-l9-aea" secondAttribute="trailing" constant="87" id="14e-ZV-yFB"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dsb-l9-aea" secondAttribute="bottom" constant="550" id="6a4-FV-PC1"/>
                             <constraint firstItem="dsb-l9-aea" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="bJG-pM-Vl0"/>
-                            <constraint firstItem="dsb-l9-aea" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="206" id="wyZ-2S-5Te"/>
+                            <constraint firstItem="dsb-l9-aea" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="dHk-Eh-S0b"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
