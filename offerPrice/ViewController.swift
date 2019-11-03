@@ -15,6 +15,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
          offerPrice.labelText = "hellohellohellohellohellohellohellohello"
+        offerPrice.backColor = .purple
+        offerPrice.labelTextColor = .orange
     }
 
 

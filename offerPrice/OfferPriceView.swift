@@ -21,6 +21,24 @@ class OfferPriceView : UIView{
         }
     }
     
+    var labelAlignment : NSTextAlignment = .center {
+        didSet{
+            label.textAlignment = labelAlignment
+        }
+    }
+    
+    var labelFont : UIFont = .systemFont(ofSize: 14){
+        didSet{
+            label.font = labelFont
+        }
+    }
+    
+    var labelTextColor : UIColor = .black{
+        didSet{
+             label.textColor = labelTextColor
+        }
+    }
+    
     var shimmerColor : UIColor = UIColor.white {
         didSet{
             shimmerCGColor = shimmerColor.cgColor
@@ -29,7 +47,11 @@ class OfferPriceView : UIView{
     
     private var shimmerCGColor : CGColor = UIColor.white.cgColor
     
-    
+    var backColor : UIColor?{
+        didSet{
+            backgroundColor = backColor
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: CGRect.zero)
@@ -90,17 +112,11 @@ class OfferPriceView : UIView{
     
     func masktoOfferice(){
         
-        
-       // backgroundColor = .blue
+
         
         let maskLayer = CAShapeLayer()
         maskLayer.frame = bounds
-        // Create the frame for the circle.
-    //    let radius: CGFloat = 50.0
-        // Rectangle in which circle will be drawn
-     //   let rect = CGRect(x: 100, y: 100, width: 2 * radius, height: 2 * radius)
-     //   let circlePath = UIBezierPath(ovalIn: rect)
-        
+
         
         let myBezier = UIBezierPath()
         
@@ -108,17 +124,7 @@ class OfferPriceView : UIView{
         
         myBezier.addLine(to: CGPoint(x: bounds.width, y: 0))
         
-        //   myBezier.addQuadCurve(to: CGPoint(x: rect.width - 20,y: 15), controlPoint: CGPoint(x:rect.width - 15,y:20.5))
-        
-        
-        // myBezier.addQuadCurve(to: CGPoint(x: rect.width - 50,y: 0), controlPoint: CGPoint(x:rect.width - 35,y:0))
-        
-        //myBezier.addQuadCurve(to: CGPoint(x: rect.width - 80,y: 15), controlPoint: CGPoint(x:rect.width - 65,y:0))
-        
-        //myBezier.addQuadCurve(to: CGPoint(x: rect.width - 100,y: 20), controlPoint: CGPoint(x:rect.width - 85,y:20.5))
-        
-        
-        
+
         myBezier.addLine(to: CGPoint(x:(bounds.width - (bounds.width * 0.15)),y: (bounds.height / 2) ))
         
         myBezier.addLine(to: CGPoint(x: bounds.width, y: bounds.height))
@@ -129,41 +135,16 @@ class OfferPriceView : UIView{
         
         
         
-        
-//        // Create a path
-//        let path = UIBezierPath(rect: bounds)
-//        // Append additional path which will create a circle
-//        path.append(circlePath)
-        // Setup the fill rule to EvenOdd to properly mask the specified area and make a crater
-       // maskLayer.fillRule = kCAFillRuleEvenOdd
-        // Append the circle to the path so that it is subtracted.
+
         maskLayer.path = myBezier.cgPath
-        // Mask our view with Blue background so that portion of red background is visible
+
         layer.mask = maskLayer
         
     }
     
     func shimmer(){
         
-        
-//        Check mail for shimmer
-//
-//        let defaultView = UIView()
-//        defaultView.frame = CGRect(x: 16, y: 30, width: view.frame.width - 32, height: 400)
-//        defaultView.backgroundColor = #colorLiteral(red: 0.9019607843, green: 0.3764705882, blue: 0.3764705882, alpha: 1).withAlphaComponent(1)
-//
-//        let shinyView = UIView()
-//        shinyView.frame = CGRect(x: 16, y: 30, width: view.frame.width - 32, height: 400)
-//            shinyView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).withAlphaComponent(0.3)
-//
-//
-//        view.addSubview(defaultView)
-//        view.addSubview(shinyView)
-//
-//        let gradientLayer = CAGradientLayer()
-        
-
-                let shinyView = UIView()
+        let shinyView = UIView()
                 shinyView.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
                     shinyView.backgroundColor = shimmerColor.withAlphaComponent(0.3)
                 
@@ -206,45 +187,7 @@ class OfferPriceView : UIView{
     
     
     override func draw(_ rect: CGRect) {
-       
-        
-//        //  let y:CGFloat = 20
-//
-//        let myBezier = UIBezierPath()
-//
-//        myBezier.move(to: CGPoint(x: 0, y: 0))
-//
-//        myBezier.addLine(to: CGPoint(x: rect.width, y: 0))
-//
-//        //   myBezier.addQuadCurve(to: CGPoint(x: rect.width - 20,y: 15), controlPoint: CGPoint(x:rect.width - 15,y:20.5))
-//
-//
-//        // myBezier.addQuadCurve(to: CGPoint(x: rect.width - 50,y: 0), controlPoint: CGPoint(x:rect.width - 35,y:0))
-//
-//        //myBezier.addQuadCurve(to: CGPoint(x: rect.width - 80,y: 15), controlPoint: CGPoint(x:rect.width - 65,y:0))
-//
-//        //myBezier.addQuadCurve(to: CGPoint(x: rect.width - 100,y: 20), controlPoint: CGPoint(x:rect.width - 85,y:20.5))
-//
-//
-//
-//        myBezier.addLine(to: CGPoint(x:(rect.width - (rect.width * 0.15)),y: (rect.height / 2) ))
-//
-//        myBezier.addLine(to: CGPoint(x: rect.width, y: rect.height))
-//
-//        myBezier.addLine(to: CGPoint(x: 0, y: rect.height))
-//
-//        myBezier.close()
-//
-//        let context = UIGraphicsGetCurrentContext()
-//        context!.setLineWidth(4.0)
-//        #colorLiteral(red: 0.9019607843, green: 0.3764705882, blue: 0.3764705882, alpha: 1).setFill()
-//
-//
-//        myBezier.fill()
-        
-        
-        
-        
+
     }
     
     
