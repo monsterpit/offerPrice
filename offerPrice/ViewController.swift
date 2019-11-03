@@ -10,9 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var offerPrice: OfferPriceView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+         offerPrice.labelText = "hellohellohellohellohellohellohellohello"
     }
 
 

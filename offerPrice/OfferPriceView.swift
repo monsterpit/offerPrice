@@ -3,7 +3,7 @@
 //  OfferPriceView.swift
 //  iOSConsumerApp
 //
-//  Created by MyGlamm on 10/24/19.
+//  Created by Vikas Salian on 10/24/19.
 //  Copyright © 2019 MyGlamm. All rights reserved.
 //
 
@@ -20,6 +20,15 @@ class OfferPriceView : UIView{
             label.text = labelText
         }
     }
+    
+    var shimmerColor : UIColor = UIColor.white {
+        didSet{
+            shimmerCGColor = shimmerColor.cgColor
+        }
+    }
+    
+    private var shimmerCGColor : CGColor = UIColor.white.cgColor
+    
     
     
     override init(frame: CGRect) {
@@ -39,12 +48,12 @@ class OfferPriceView : UIView{
     private func setupLabel(text : String){
         
         
-        abc()
+        shimmer()
         
         
         label.text = ""
         label.numberOfLines = 2
-        
+        label.textAlignment = .center
        // label.font = UIFont.mgDDinFont(type: .regular, size: 14)
         
         addSubview(label)
@@ -54,13 +63,20 @@ class OfferPriceView : UIView{
                            relatedBy: .equal,
                            toItem: self,
                            attribute: .leading, multiplier: 1,
-                           constant: 9).isActive = true
+                           constant: 10).isActive = true
         NSLayoutConstraint(item: label,
                            attribute: .trailing,
                            relatedBy: .equal,
                            toItem: self,
                            attribute: .trailing, multiplier: 1,
-                           constant: -(9)).isActive = true
+                           constant: -(55)).isActive = true
+        
+        NSLayoutConstraint(item: label,
+                           attribute: .centerX,
+                           relatedBy: .equal,
+                           toItem: self,
+                           attribute: .centerX, multiplier: 1,
+                           constant: (0)).isActive = true
         
         NSLayoutConstraint(item: label,
                            attribute: .centerY,
@@ -72,10 +88,10 @@ class OfferPriceView : UIView{
     }
     
     
-    func abc(){
+    func masktoOfferice(){
         
         
-        backgroundColor = .blue
+       // backgroundColor = .blue
         
         let maskLayer = CAShapeLayer()
         maskLayer.frame = bounds
@@ -127,10 +143,70 @@ class OfferPriceView : UIView{
         
     }
     
+    func shimmer(){
+        
+        
+//        Check mail for shimmer
+//
+//        let defaultView = UIView()
+//        defaultView.frame = CGRect(x: 16, y: 30, width: view.frame.width - 32, height: 400)
+//        defaultView.backgroundColor = #colorLiteral(red: 0.9019607843, green: 0.3764705882, blue: 0.3764705882, alpha: 1).withAlphaComponent(1)
+//
+//        let shinyView = UIView()
+//        shinyView.frame = CGRect(x: 16, y: 30, width: view.frame.width - 32, height: 400)
+//            shinyView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).withAlphaComponent(0.3)
+//
+//
+//        view.addSubview(defaultView)
+//        view.addSubview(shinyView)
+//
+//        let gradientLayer = CAGradientLayer()
+        
+
+                let shinyView = UIView()
+                shinyView.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
+                    shinyView.backgroundColor = shimmerColor.withAlphaComponent(0.3)
+                
+                
+                addSubview(shinyView)
+                
+                let gradientLayer = CAGradientLayer()
+                gradientLayer.colors = [
+                    UIColor.clear.cgColor, UIColor.clear.cgColor,
+                    shimmerCGColor, shimmerCGColor,
+                    UIColor.clear.cgColor, UIColor.clear.cgColor
+                ]
+                
+                gradientLayer.locations = [0, 0.2, 0.55, 0.6, 0.8, 1]
+                
+                //gradientLayer.locations = [0,0.5, 1]
+                gradientLayer.frame = shinyView.frame
+                
+                let angle = 70 * CGFloat.pi / 180
+                gradientLayer.transform = CATransform3DMakeRotation(angle, 0, 0, 1)
+                
+                shinyView.layer.mask = gradientLayer
+                
+                gradientLayer.transform = CATransform3DConcat(gradientLayer.transform, CATransform3DMakeScale(2, 2, 0))
+                
+                let animation = CABasicAnimation(keyPath: "transform.translation.x")
+                animation.fromValue = -1.5 * frame.width
+                animation.toValue = 1.5 * frame.width
+                animation.repeatCount = Float.infinity
+                animation.duration = 2
+                
+                gradientLayer.add(animation, forKey: "animation")
+                
+                
+                masktoOfferice()
+                
+                
+    }
+    
     
     
     override func draw(_ rect: CGRect) {
-        
+       
         
 //        //  let y:CGFloat = 20
 //

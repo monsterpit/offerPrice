@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,25 +16,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dsb-l9-aea" customClass="OfferPriceView" customModule="offerPrice" customModuleProvider="target">
-                                <rect key="frame" x="87" y="417" width="240" height="62"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hIh-NK-U3G" customClass="OfferPriceView" customModule="offerPrice" customModuleProvider="target">
+                                <rect key="frame" x="50" y="384" width="314" height="128"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="62" id="cro-Oo-U63"/>
+                                    <constraint firstAttribute="height" constant="128" id="uIc-CR-AEW"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UFp-yR-diq">
+                                <rect key="frame" x="50" y="584" width="314" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bp0-fy-HzN">
+                                        <rect key="frame" x="10" y="53.5" width="294" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="Bp0-fy-HzN" firstAttribute="centerX" secondItem="UFp-yR-diq" secondAttribute="centerX" id="BBZ-Mu-hhi"/>
+                                    <constraint firstItem="Bp0-fy-HzN" firstAttribute="centerY" secondItem="UFp-yR-diq" secondAttribute="centerY" id="YZe-9H-OLM"/>
+                                    <constraint firstAttribute="trailing" secondItem="Bp0-fy-HzN" secondAttribute="trailing" constant="10" id="rvL-tf-dS8"/>
+                                    <constraint firstItem="Bp0-fy-HzN" firstAttribute="leading" secondItem="UFp-yR-diq" secondAttribute="leading" constant="10" id="wHf-yZ-Dx0"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dsb-l9-aea" secondAttribute="trailing" constant="87" id="14e-ZV-yFB"/>
-                            <constraint firstItem="dsb-l9-aea" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="bJG-pM-Vl0"/>
-                            <constraint firstItem="dsb-l9-aea" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="dHk-Eh-S0b"/>
+                            <constraint firstItem="hIh-NK-U3G" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="8Wp-MX-HT6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hIh-NK-U3G" secondAttribute="trailing" constant="50" id="VYL-Rc-du5"/>
+                            <constraint firstItem="UFp-yR-diq" firstAttribute="centerX" secondItem="hIh-NK-U3G" secondAttribute="centerX" id="Xkl-Pv-9hE"/>
+                            <constraint firstItem="hIh-NK-U3G" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="cN7-k9-saV"/>
+                            <constraint firstItem="UFp-yR-diq" firstAttribute="width" secondItem="hIh-NK-U3G" secondAttribute="width" id="cuh-PX-0Sg"/>
+                            <constraint firstItem="UFp-yR-diq" firstAttribute="height" secondItem="hIh-NK-U3G" secondAttribute="height" id="iVA-pG-xFo"/>
+                            <constraint firstItem="UFp-yR-diq" firstAttribute="centerY" secondItem="hIh-NK-U3G" secondAttribute="centerY" constant="200" id="jRb-L5-G4X"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="offerPrice" destination="hIh-NK-U3G" id="112-2w-edm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="133" y="96"/>
         </scene>
     </scenes>
 </document>
